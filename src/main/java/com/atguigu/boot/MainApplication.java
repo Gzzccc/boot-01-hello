@@ -3,6 +3,7 @@ package com.atguigu.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * 主程序类
@@ -12,6 +13,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MainApplication {
 
     public static void main(String args[]){
-        SpringApplication.run(MainApplication.class,args);
+        //返回IOC容器
+        ConfigurableApplicationContext run = SpringApplication.run(MainApplication.class, args);
+        //查看容器内容
+        String[] names = run.getBeanDefinitionNames();
+        for (String name: names) {
+            System.out.println(name);
+        }
+        //从容器中获取组件
     }
 }

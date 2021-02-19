@@ -7,6 +7,7 @@
     <groupId>com.atguigu</groupId>
     <artifactId>boot-01-helloworld</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -19,5 +20,27 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
     </dependencies>
+
+    <!--修改版本号
+    repository/org/springframework/boot/spring-boot-dependencies
+    /2.3.4.RELEASE/spring-boot-dependencies-2.3.4.RELEASE.pom
+    查看默认版本号-->
+    <properties>
+        <mysql.version>5.1.39</mysql.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
