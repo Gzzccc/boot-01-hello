@@ -8,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
-
 @ResponseBody
 @Controller
 @Slf4j
@@ -22,11 +19,14 @@ public class HellorController {
     @Autowired
     Person person;
 
+    @Autowired
+    User user01;
+
 
     @RequestMapping(value = "/hello" ,method = RequestMethod.POST)
-    public String handle01(@RequestParam("name") String name,@RequestBody List<Map> user) {
-        log.info("请求进来了...."+user.get(0).get("name"));
-        return "Hello,SpringBoot2! 桂志超"+name;
+    public String handle01(@RequestParam("name") String name,@RequestBody User user) {
+        log.info("请求进来了...."+user.toString());
+        return "Hello,SpringBoot2! 桂志超"+name+user01.toString();
     }
 
 
@@ -38,5 +38,31 @@ public class HellorController {
     @RequestMapping(value = "/person")
     public String handle03() {
         return person.toString();
+    }
+
+
+//    @RequestMapping(value = "/user",method = RequestMethod.GET)
+    @GetMapping("/user")
+    public String getUser(){
+        return "GET-张三";
+    }
+
+//    @RequestMapping(value = "/user",method = RequestMethod.POST)
+    @PostMapping("/user")
+    public String saveUser(){
+        return "POST-张三";
+    }
+
+
+//    @RequestMapping(value = "/user",method = RequestMethod.PUT)
+    @PutMapping("/user")
+    public String putUser(){
+        return "PUT-张三";
+    }
+
+//    @RequestMapping(value = "/user",method = RequestMethod.DELETE)
+    @DeleteMapping("/user")
+    public String deleteUser(){
+        return "DELETE-张三";
     }
 }

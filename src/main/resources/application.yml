@@ -25,3 +25,19 @@ person:
       - {name: jerry,weight: 47}
     health: [{name: mario,weight: 47}]
 
+spring:
+#  mvc:
+#    static-path-pattern: /res/**
+#
+  resources:
+    add-mappings: true
+    cache:
+      period: 11000
+#    static-locations: [classpath:/haha/]
+
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+

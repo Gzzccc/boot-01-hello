@@ -9,6 +9,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 /**
  * 1.配置类里面使用@Bean标注在方法上给容器注册组件，默认也是单实例的
@@ -50,4 +51,12 @@ public class MyConfig {
     public Pet tomcat(){
         return new Pet("tomcat",123.0);
     }
+
+    @Bean
+    public HiddenHttpMethodFilter hiddenHttpMethodFilter(){
+        HiddenHttpMethodFilter hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
+        hiddenHttpMethodFilter.setMethodParam("_m");
+        return hiddenHttpMethodFilter;
+    }
+
 }
