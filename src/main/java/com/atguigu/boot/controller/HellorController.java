@@ -17,7 +17,9 @@ public class HellorController {
     Car car;
 
     @Autowired
-    Person person;
+    Person person1;
+//    @Autowired
+//    Person person;
 
     @Autowired
     User user01;
@@ -37,11 +39,11 @@ public class HellorController {
 
     @RequestMapping(value = "/person")
     public String handle03() {
-        return person.toString();
+        return person1.toString();
     }
 
 
-//    @RequestMapping(value = "/user",method = RequestMethod.GET)
+    //    @RequestMapping(value = "/user",method = RequestMethod.GET)
     @GetMapping("/user")
     public String getUser(){
         return "GET-张三";
