@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.util.UrlPathHelper;
 
 /**
  * 1.配置类里面使用@Bean标注在方法上给容器注册组件，默认也是单实例的
@@ -59,4 +62,25 @@ public class MyConfig {
         return hiddenHttpMethodFilter;
     }
 
+
+    @Bean
+    public WebMvcConfigurer webMvcConfigurer(){
+        return new WebMvcConfigurer(){
+            @Override
+            public void configurePathMatch(PathMatchConfigurer configurer) {
+                UrlPathHelper urlPathHelper = new UrlPathHelper();
+                //矩阵变量
+                urlPathHelper.setRemoveSemicolonContent(false);
+                configurer.setUrlPathHelper(urlPathHelper);
+            }
+        };
+    }
+
+//    @Override
+//    public void configurePathMatch(PathMatchConfigurer configurer) {
+//        UrlPathHelper urlPathHelper = new UrlPathHelper();
+//        //矩阵变量
+//        urlPathHelper.setRemoveSemicolonContent(false);
+//        configurer.setUrlPathHelper(urlPathHelper);
+//    }
 }
