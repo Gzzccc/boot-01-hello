@@ -5,11 +5,9 @@ import ch.qos.logback.classic.db.DBHelper;
 import com.atguigu.boot.bean.Pet;
 import com.atguigu.boot.bean.User;
 import com.atguigu.boot.config.MyConfig;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
