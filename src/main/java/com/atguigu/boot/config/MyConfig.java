@@ -9,6 +9,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -26,10 +27,12 @@ import org.springframework.web.util.UrlPathHelper;
  */
 @Import({User.class, DBHelper.class})
 @Configuration(proxyBeanMethods = false) //告诉SpringBoot这是一个配置类 == 配置文件
-@ConditionalOnMissingBean(name = "tom")
+
 @EnableConfigurationProperties(Car.class)
 //1、开启Car配置绑定功能
 //2、把这个Car这个组件自动注册到容器中
+
+@ConditionalOnMissingBean(name = "tom")
 public class MyConfig {
 
     /**
@@ -76,11 +79,4 @@ public class MyConfig {
         };
     }
 
-//    @Override
-//    public void configurePathMatch(PathMatchConfigurer configurer) {
-//        UrlPathHelper urlPathHelper = new UrlPathHelper();
-//        //矩阵变量
-//        urlPathHelper.setRemoveSemicolonContent(false);
-//        configurer.setUrlPathHelper(urlPathHelper);
-//    }
 }

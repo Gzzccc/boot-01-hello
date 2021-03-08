@@ -5,6 +5,7 @@ import ch.qos.logback.classic.db.DBHelper;
 import com.atguigu.boot.bean.Pet;
 import com.atguigu.boot.bean.User;
 import com.atguigu.boot.config.MyConfig;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,7 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
  * 主程序类
  * 这是一个springboot应用
  */
-//@SpringBootApplication
+//@SpringBootApplication  下面3个的合成
 @SpringBootConfiguration //@Configuration代表当前是一个配置类
 @EnableAutoConfiguration
 @ComponentScan("com.atguigu.boot") //指定扫描哪些，Spring注解；

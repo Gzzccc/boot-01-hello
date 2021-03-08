@@ -24,6 +24,13 @@
         <input value="REST-PUT 提交" type="submit">
     </form>
 
+    <form action="/save" method="post">
+        测试@RequestBody获取数据<br>
+        用户名：<input name="username"/><br>
+        密码：<input name="email"/><br>
+        <input type="submit" value="提交">
+    </form>
+
 <hr/>
 测试基本注解
 <ul>
@@ -38,15 +45,8 @@
 </ul>
 <br>
     <a href="/cars/sell;low=30;brand=byd,audi,yd">@MatrixVariable (矩阵变量)</a><br>
-    <a href="/cars/sell;low=30;brand=byd;brand=audi;brand=yd">@MatrixVariable (矩阵变量)</a><br>
-    <a href="/boss/1;age=20/2;age=32">/boss/{bossId}/{empId}</a><br>
+    <a href="/cars/sell;low=30;brand=比亚迪;brand=audi;brand=yd">@MatrixVariable (矩阵变量)</a><br>
+    <a href="/boss/1;age=桂志超/2;age=32">/boss/{bossId}/{empId}</a><br>
     <a href="/boss2/1;age=20/2;age=32">/boss2/{bossId}/{empId}</a><br>
-
-    <form action="/save" method="post">
-        测试@RequestBody获取数据<br>
-        用户名：<input name="username"/><br>
-        密码：<input name="email"/><br>
-        <input type="submit" value="提交">
-    </form>
 </body>
 </html>

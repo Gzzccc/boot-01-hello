@@ -3,6 +3,7 @@ package com.atguigu.boot.controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,8 +41,10 @@ public class ParamterTestController {
     @PostMapping(value = "/save", produces = "application/json; charset=utf-8")
     public Map postMethod(@RequestBody String content){
         Map<String,Object> map = new HashMap<>();
+        //对于表单中form以application/x-www-form-urlencoded形式传递参数，中文乱码
+        String decode = URLDecoder.decode(content);
         map.put("content",content);
-        System.out.println(content);
+        System.out.println(decode);
         return map;
     }
 
